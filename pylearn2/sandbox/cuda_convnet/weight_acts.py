@@ -42,7 +42,7 @@ The copyright and licensing notice for this code is reproduced below:
 """
 
 from theano.misc.strutil import render_string
-from theano.sandbox.cuda import CudaNdarrayType
+from theano.gpuarray import CudaNdarrayType
 from theano.gof import Apply
 from pylearn2.sandbox.cuda_convnet.base_acts import BaseActs
 from pylearn2.sandbox.cuda_convnet.base_acts import UnimplementedError

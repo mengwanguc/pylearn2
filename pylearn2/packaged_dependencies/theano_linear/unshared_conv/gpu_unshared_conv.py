@@ -8,11 +8,11 @@ import os
 import StringIO
 
 import theano
-from theano.sandbox.cuda import CudaNdarrayType
+from theano.gpuarray import CudaNdarrayType
 from theano.gof import local_optimizer
-from theano.sandbox.cuda.opt import register_opt
-from theano.sandbox.cuda import gpu_from_host, host_from_gpu
-from theano.sandbox.cuda.basic_ops import gpu_contiguous
+from theano.gpuarray.opt import register_opt
+from theano.gpuarray import gpu_from_host, host_from_gpu
+from theano.gpuarray.basic_ops import gpu_contiguous
 
 from .unshared_conv import FilterActs
 from .unshared_conv import WeightActs
@@ -333,7 +333,7 @@ class GpuWeightActs(Base):
 
         igroups, icolors, irows, icols, icount = images.type.broadcastable
         hgroups, hcolors, hrows, hcols, hcount = hidacts.type.broadcastable
-        otype = theano.sandbox.cuda.CudaNdarrayType(
+        otype = theano.gpuarray.CudaNdarrayType(
                 broadcastable=(hrows, hcols, icolors,
                     False, False, hgroups, hcolors))
         return theano.Apply(self,

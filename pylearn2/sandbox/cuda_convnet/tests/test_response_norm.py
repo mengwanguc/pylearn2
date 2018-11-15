@@ -8,10 +8,10 @@ try:
         CrossMapNorm,
         CrossMapNormUndo
     )
-    from theano.sandbox.cuda import CudaNdarrayType, CudaNdarray
-    from theano.sandbox.cuda import gpu_from_host
-    from theano.sandbox.cuda import ftensor4 as cuda_ftensor4
-    from theano.sandbox.cuda.basic_ops import gpu_contiguous
+    from theano.gpuarray import CudaNdarrayType, CudaNdarray
+    from theano.gpuarray import gpu_from_host
+    from theano.gpuarray import ftensor4 as cuda_ftensor4
+    from theano.gpuarray.basic_ops import gpu_contiguous
 except ImportError:
     raise SkipTest('cuda not available')
 

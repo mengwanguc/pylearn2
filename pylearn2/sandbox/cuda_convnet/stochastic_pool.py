@@ -18,10 +18,10 @@ import warnings
 import numpy
 from theano import shared
 from theano.gof import Apply
-from theano.sandbox.cuda import CudaNdarrayType
-from theano.sandbox.cuda.basic_ops import as_cuda_ndarray_variable
-from theano.sandbox.cuda.basic_ops import gpu_contiguous
-from theano.sandbox.cuda import GpuOp
+from theano.gpuarray import CudaNdarrayType
+from theano.gpuarray.basic_ops import as_cuda_ndarray_variable
+from theano.gpuarray.basic_ops import gpu_contiguous
+from theano.gpuarray import GpuOp
 from theano.tensor import get_scalar_constant_value, NotScalarConstantError, zeros_like
 from pylearn2.sandbox.cuda_convnet.base_acts import UnimplementedError
 from pylearn2.sandbox.cuda_convnet.convnet_compile import convnet_available

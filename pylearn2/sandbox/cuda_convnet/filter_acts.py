@@ -40,14 +40,14 @@ The copyright and licensing notice for this code is reproduced below:
  */
 
 """
-from theano.sandbox.cuda import CudaNdarrayType
+from theano.gpuarray import CudaNdarrayType
 from theano.gof import Apply
 from pylearn2.sandbox.cuda_convnet.base_acts import BaseActs
 from pylearn2.sandbox.cuda_convnet.base_acts import UnimplementedError
 from pylearn2.sandbox.cuda_convnet.img_acts import ImageActs
 from pylearn2.sandbox.cuda_convnet.weight_acts import WeightActs
 from pylearn2.utils import py_integer_types
-from theano.sandbox.cuda.basic_ops import gpu_contiguous
+from theano.gpuarray.basic_ops import gpu_contiguous
 
 
 class FilterActs(BaseActs):
@@ -66,11 +66,11 @@ class FilterActs(BaseActs):
       be <=3, or be even. Note: if you want to take the gradient with
       respect to the weights, channels must be divisible by 4. Must be
       C contiguous. You can enforce this by calling
-      `theano.sandbox.cuda.basic_ops.gpu_contiguous` on it.
+      `theano.gpuarray.basic_ops.gpu_contiguous` on it.
     * filters: (input channels, filter rows, filter cols, output channels).
       Rows must be the same as cols output channels must be a multiple
       of 16. Must be C contiguous. You can enforce this by calling
-      `theano.sandbox.cuda.basic_ops.gpu_contiguous` on it. The number of
+      `theano.gpuarray.basic_ops.gpu_contiguous` on it. The number of
       rows and columns must be the same.
     * output: (output channels, output rows, output cols, batch size)
 

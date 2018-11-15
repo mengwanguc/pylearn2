@@ -28,7 +28,7 @@ class TestConv2DC01b(unittest.TestCase):
         """
         self.orig_floatX = theano.config.floatX
         theano.config.floatX = 'float32'
-        theano.sandbox.cuda.use('gpu')
+        theano.gpuarray.use('gpu')
         self.image = \
             numpy.random.rand(16, 3, 3, 1).astype(theano.config.floatX)
         self.image_tensor = tensor.tensor4()
@@ -39,7 +39,7 @@ class TestConv2DC01b(unittest.TestCase):
 
     def tearDown(self):
         theano.config.floatX = self.orig_floatX
-        theano.sandbox.cuda.unuse()
+        theano.gpuarray.unuse()
 
     def scipy_conv_c01b(self, images, filters):
         """
